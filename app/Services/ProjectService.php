@@ -38,10 +38,11 @@ class ProjectService
 
     /**
      * Return all projects
+     * @param $data
      * @return string
      */
-    public function obtainProjects() {
-        return $this->performRequest('GET','/projects');
+    public function obtainProjects($data=[]) {
+        return $this->performRequest('GET','/projects',$data);
     }
 
     /**

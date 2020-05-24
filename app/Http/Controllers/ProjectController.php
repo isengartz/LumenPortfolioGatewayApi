@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     use ApiResponser;
 
-    public $projectService;
+    private $projectService;
 
 
     /**
@@ -28,10 +28,11 @@ class ProjectController extends Controller
 
     /**
      * Return all projects
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index() {
-        return $this->successResponse($this->projectService->obtainProjects());
+    public function index(Request $request) {
+        return $this->successResponse($this->projectService->obtainProjects($request->all()));
     }
 
     /**
