@@ -8,8 +8,10 @@
         "php": "^7.2.5",
         "dusterio/lumen-passport": "^0.2.18",
         "guzzlehttp/guzzle": "^6.5",
+        "illuminate/redis": "^7.14",
         "laravel/lumen-framework": "^7.0",
-        "laravel/passport": "9.*"
+        "laravel/passport": "9.*",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",
