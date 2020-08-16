@@ -7,6 +7,7 @@ use App\Services\ProjectService;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ProjectController extends Controller
 {
@@ -27,20 +28,21 @@ class ProjectController extends Controller
     }
 
     /**
-     * Return all projects
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Response
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         return $this->successResponse($this->projectService->obtainProjects($request->all()));
     }
 
     /**
-     * Create a new project
+     * Create new project
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request){
+    public function store(Request $request) : JsonResponse
+    {
          return $this->successResponse($this->projectService->createProject($request->all(), Response::HTTP_CREATED));
     }
 
@@ -49,7 +51,8 @@ class ProjectController extends Controller
      * @param $project
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($project){
+    public function show($project) : JsonResponse
+    {
         return $this->successResponse($this->projectService->obtainProject($project));
     }
 
@@ -59,7 +62,8 @@ class ProjectController extends Controller
      * @param $project
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request,$project){
+    public function update(Request $request,$project) : JsonResponse
+    {
         return $this->successResponse($this->projectService->editProject($request->all(),$project));
     }
 
@@ -68,7 +72,8 @@ class ProjectController extends Controller
      * @param $project
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($project){
+    public function destroy($project) : JsonResponse
+    {
         return $this->successResponse($this->projectService->deleteProject($project));
     }
 }

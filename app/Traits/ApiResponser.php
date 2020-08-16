@@ -14,7 +14,7 @@ trait ApiResponser {
     /**
      * @param $data
      * @param int $code
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function successResponse($data, $code = Response::HTTP_OK){
         return response($data,$code)->header('Content-Type','application/json');
@@ -23,7 +23,7 @@ trait ApiResponser {
      * Build valid response
      * @param  string|array $data
      * @param  int $code
-     * @return Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function validResponse($data, $code = Response::HTTP_OK)
     {

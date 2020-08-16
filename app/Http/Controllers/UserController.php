@@ -43,7 +43,7 @@ class UserController extends Controller
 
     /**
      * Generates a token. Usable for API Users
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function generateToken(){
         return $this->successResponse($this->userService->generateToken());
@@ -52,7 +52,7 @@ class UserController extends Controller
     /**
      * Perform a login
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function login(Request $request){
         return $this->successResponse($this->userService->login($request->all()));
@@ -61,7 +61,7 @@ class UserController extends Controller
     /**
      * Create one new user
      * @param Request $request
-     * @return \App\Traits\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
@@ -85,7 +85,7 @@ class UserController extends Controller
     /**
      * Obtains and show one user
      * @param $user
-     * @return \App\Traits\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($user)
     {
@@ -101,7 +101,7 @@ class UserController extends Controller
      * Update User
      * @param Request $request
      * @param $user
-     * @return \App\Traits\Illuminate\Http\JsonResponse|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $user)
@@ -134,7 +134,7 @@ class UserController extends Controller
     /**
      * Delete user
      * @param $user
-     * @return \App\Traits\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($user)
     {
@@ -148,7 +148,7 @@ class UserController extends Controller
     /**
      * Identify existing user
      * @param Request $request
-     * @return \App\Traits\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function me(Request $request)
     {

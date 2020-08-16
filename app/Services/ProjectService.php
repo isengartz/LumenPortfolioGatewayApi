@@ -41,7 +41,13 @@ class ProjectService extends BaseService
      */
     public function obtainProjects($data = [])
     {
-//        $this->cacheHelper->deleteCollection($this->prefix . CacheConstants::CACHED_ENTITY_PROJECTS);
+        //$this->cacheHelper->deleteCollection($this->prefix . CacheConstants::CACHED_ENTITY_PROJECTS);
+
+        // If the request has filters attached we need to get them from API and dont cache it
+        if (!empty($data)) {
+            $projects = $this->performRequest('GET', '/projects', $data);
+            return $projects;
+        }
 
         // if item is cached return from the cache memory
         if (!empty($this->cacheHelper->cacheEntityExists($this->prefix . CacheConstants::CACHED_ENTITY_PROJECTS))) {
@@ -60,7 +66,6 @@ class ProjectService extends BaseService
      * Create a new project
      * @param $data
      * @return string
-     * @todo: Add item at hash when Im not bored xD
      */
     public function createProject($data)
     {
